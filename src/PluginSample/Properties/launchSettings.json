@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PluginSample": {
+      "commandName": "PluginSample",
+      "commandLineArgs": "SecretManager",
+      "sdkVersion": "dnx-coreclr-win-x86.1.0.0-beta6"
+    }
+  }
+}
