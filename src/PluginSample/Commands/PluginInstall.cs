@@ -65,7 +65,7 @@ namespace PluginSample.Commands
             }
             File.WriteAllLines(
                 $"Command.{PackageId}.txt",
-                runtimeAssemblies.Select(x => $"{Path.GetFileNameWithoutExtension(x)}={x}"));
+                runtimeAssemblies.Select(x => $"{Path.GetFileNameWithoutExtension(x)}={x.Replace('/', Path.DirectorySeparatorChar)}"));
         }
     }
 }
