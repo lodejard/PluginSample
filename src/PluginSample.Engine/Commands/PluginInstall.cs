@@ -1,14 +1,11 @@
 ﻿using Newtonsoft.Json.Linq;
-using PluginSample.Workers;
-using System;
+using PluginSample.Engine.Workers;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PluginSample.Commands
+namespace PluginSample.Engine.Commands
 {
     public class PluginInstall
     {
@@ -50,7 +47,7 @@ namespace PluginSample.Commands
             {
                 var root = JToken.Parse(File.ReadAllText(lockFile));
                 var targets = root["targets"];
-                var target = targets[Program.ApplicationEnvironment.RuntimeFramework.ToString()];
+                var target = targets[Services.ApplicationEnvironment.RuntimeFramework.ToString()];
                 foreach (var package in target.OfType<JProperty>())
                 {
                     var packageRuntime = package.Value["runtime"];

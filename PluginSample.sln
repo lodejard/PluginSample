@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PluginSample", "src\PluginSample\PluginSample.xproj", "{7F6F6F33-2F4E-409E-89AF-333179B20910}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PluginSample.Engine", "src\PluginSample.Engine\PluginSample.Engine.xproj", "{A2CCE898-95DA-40E0-8973-10011E7BC306}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{7F6F6F33-2F4E-409E-89AF-333179B20910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F6F6F33-2F4E-409E-89AF-333179B20910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F6F6F33-2F4E-409E-89AF-333179B20910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2CCE898-95DA-40E0-8973-10011E7BC306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2CCE898-95DA-40E0-8973-10011E7BC306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2CCE898-95DA-40E0-8973-10011E7BC306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2CCE898-95DA-40E0-8973-10011E7BC306}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7F6F6F33-2F4E-409E-89AF-333179B20910} = {2FB6BEA8-721B-4B82-841F-4E7C494AC952}
+		{A2CCE898-95DA-40E0-8973-10011E7BC306} = {2FB6BEA8-721B-4B82-841F-4E7C494AC952}
 	EndGlobalSection
 EndGlobal

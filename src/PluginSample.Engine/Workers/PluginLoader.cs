@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System;
 
-namespace PluginSample.Workers
+namespace PluginSample.Engine.Workers
 {
     public class PluginLoader : IAssemblyLoader
     {
@@ -13,7 +13,7 @@ namespace PluginSample.Workers
 
         public PluginLoader(string packageId)
         {
-            var pluginSamplePath = Program.LibraryManager.GetLibraryInformation("PluginSample").Path;
+            var pluginSamplePath = Services.LibraryManager.GetLibraryInformation("PluginSample").Path;
             var packagesPath = Path.GetDirectoryName(Path.GetDirectoryName(pluginSamplePath));
 
             packagesPath = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), ".dnx", "bin", "packages");
@@ -32,7 +32,7 @@ namespace PluginSample.Workers
                 return null;
             }
 
-            return Program.AssemblyLoadContextAccessor.Default.LoadFile(assemblyPath);
+            return Services.AssemblyLoadContextAccessor.Default.LoadFile(assemblyPath);
         }
     }
 }

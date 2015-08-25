@@ -1,28 +1,24 @@
-﻿using PluginSample.Commands;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.Framework.Runtime;
-using PluginSample.Workers;
-using System.Reflection;
+using System.Diagnostics;
+using System;
+using PluginSample.Engine;
+using PluginSample.Engine.Commands;
 
 namespace PluginSample
 {
     public class Program
     {
-        public static IApplicationEnvironment ApplicationEnvironment { get; private set; }
-        public static IAssemblyLoaderContainer AssemblyLoaderContainer { get; private set; }
-        public static IAssemblyLoadContextAccessor AssemblyLoadContextAccessor { get; private set; }
-        public static ILibraryManager LibraryManager { get; private set; }
-
         public Program(
             IApplicationEnvironment applicationEnvironment,
             IAssemblyLoaderContainer assemblyLoaderContainer,
             IAssemblyLoadContextAccessor assemblyLoadContextAccessor,
             ILibraryManager libraryManager)
         {
-            ApplicationEnvironment = applicationEnvironment;
-            AssemblyLoaderContainer = assemblyLoaderContainer;
-            AssemblyLoadContextAccessor = assemblyLoadContextAccessor;
-            LibraryManager = libraryManager;
+            Services.ApplicationEnvironment = applicationEnvironment;
+            Services.AssemblyLoaderContainer = assemblyLoaderContainer;
+            Services.AssemblyLoadContextAccessor = assemblyLoadContextAccessor;
+            Services.LibraryManager = libraryManager;
         }
 
         public void Main(string[] args)
@@ -36,15 +32,18 @@ namespace PluginSample
                 PackageId = pluginName,
                 PackageVersion = pluginVersion
             };
-            pluginInstall.Execute();
+            //pluginInstall.Execute();
 
+            var sw = Stopwatch.StartNew();
             // Load plugin from installed assemblies
             var pluginExecute = new PluginExecute
             {
                 PackageId = pluginName
             };
             pluginExecute.Execute();
-
+            sw.Stop();
+            Console.WriteLine($"Elapsed: {sw.ElapsedMilliseconds}ms");
+            Console.ReadLine();
         }
     }
 }
